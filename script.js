@@ -11,42 +11,41 @@ let iconDone
 let div
 
 function addItem() {
+    if (input.value === '') {
+        // button.removeEventListener('click', addItem)
+        para2.innerHTML = 'You have to fill the input!'
+    } else {
+        //---------div container---------
+        div = document.createElement('div')
+        div.classList.add("divContainer")
+        container.appendChild(div)
+            //---------paragraf---------
+        para = document.createElement('p')
+        para.classList.add('para')
+        div.appendChild(para)
+            //---------icon check---------
+        iconDone = document.createElement('button')
+        iconDone.classList.add("done")
+        div.appendChild(iconDone)
+        iconDone.innerHTML = `<i class="fa-solid fa-check"></i>`
+            //---------icon delete---------
+        iconDelete = document.createElement('button')
+        iconDelete.classList.add("delete")
+        div.appendChild(iconDelete)
+        iconDelete.innerHTML = `<i class="fa-solid fa-trash-can"></i>`
+            //---------stuf---------
+        const value = input.value
+        const value2 = value.charAt(0).toUpperCase() + value.slice(1);
+        para.textContent = `${value2}.`
+        para2.innerHTML = ''
+    }
 
-    //---------div container---------
-    div = document.createElement('div')
-    div.classList.add("divContainer")
-    container.appendChild(div)
-        //---------paragraf---------
-    para = document.createElement('p')
-    para.classList.add('para')
-    div.appendChild(para)
-        //---------icon check---------
-    iconDone = document.createElement('button')
-    iconDone.classList.add("done")
-    div.appendChild(iconDone)
-    iconDone.innerHTML = `<i class="fa-solid fa-check"></i>`
-        //---------icon delete---------
-    iconDelete = document.createElement('button')
-    iconDelete.classList.add("delete")
-    div.appendChild(iconDelete)
-    iconDelete.innerHTML = `<i class="fa-solid fa-trash-can"></i>`
-        //---------stuf---------
-
-    const value = input.value
-    const value2 = value.charAt(0).toUpperCase() + value.slice(1);
-    para.textContent = `${value2}.`
     input.value = ''
     input.focus()
     remove(iconDelete, iconDone, para, div)
     lineThrough(iconDone, para, div)
 
 }
-//   if(input.value === ''){
-//   button.removeEventListener('click', addItem)
-//     para2.innerHTML = 'ddd'
-//   }else{
-//    addItem()
-// } 
 
 function remove(buttonDel, button, para, div) {
     buttonDel.addEventListener('click', function() {
@@ -63,6 +62,3 @@ function lineThrough(item, para, div) {
         div.style.opacity = 0.6
     })
 }
-
-
-//input.focus()
