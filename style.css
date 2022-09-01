@@ -96,3 +96,9 @@ body {
     margin-right: auto;
     transition: all 1s ease;
 }
+
+@media screen and (max-width: 600px) {
+    .task {
+        width: 90%;
+    }
+}
