@@ -46,7 +46,7 @@ body {
 }
 
 .divContainer {
-    height: 40px;
+    height: fit-content;
     max-width: 550px;
     display: flex;
     align-items: center;
