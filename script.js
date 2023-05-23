@@ -58,7 +58,7 @@ function remove(buttonDel, button, para, div) {
 
 function lineThrough(item, para, div) {
     item.addEventListener('click', function() {
-        para.classList.add('line')
-        div.style.opacity = 0.6
+        para.classList.toggle('line')
+        div.classList.toggle('line')
     })
 }
